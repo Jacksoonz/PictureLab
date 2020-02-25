@@ -11,6 +11,16 @@ public class IntArrayWorker
     matrix = theMatrix;
   }
   
+  public static void testGetCount()
+  {
+      IntArrayWorker worker = new IntArraryWorker();
+      int[][] nums = new int[3][4];
+      worker.setMatrix(nums);
+      worker.fillPatern1();
+      int count = worker.getCount(1);
+      System.out.println("Count should be 6 and count is " + count);
+    }
+    
   /**
    * Method to return the total 
    * @return the total of the values in the array
@@ -98,5 +108,6 @@ public class IntArrayWorker
       }
     }
   }
+  
  
 }
