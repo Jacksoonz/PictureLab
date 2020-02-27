@@ -10,16 +10,42 @@ public class IntArrayWorker
   {
     matrix = theMatrix;
   }
-  
-  public static void testGetCount()
-  {
-      IntArrayWorker worker = new IntArraryWorker();
-      int[][] nums = new int[3][4];
-      worker.setMatrix(nums);
-      worker.fillPatern1();
-      int count = worker.getCount(1);
-      System.out.println("Count should be 6 and count is " + count);
+
+  public int getCount(int n){
+    int count = 0;
+    for (int row = 0 ; row<matrix.length ; row++)
+    {
+        for (int col = 0; col < matrix[0].length ; col++)
+        {
+            if (matrix[row][col]==n){
+                count++;
+            }
+        }
     }
+    return count;
+  }
+  
+  public int getLargest(int n){
+      int count = 0;
+      for(int row = 0 ; row<matrix.length ; row++)
+      {
+          if(count<matrix[row][n])
+          {
+              count = matrix[row][n];
+          }
+      }
+      return count;
+  }
+  
+  public int getColTotal(int n){
+      int sum=0;
+      
+      for(int row=0 ; row<matrix.length ; row++)
+      {
+          sum+=matrix[row][n];
+      }
+      return sum;
+  }
     
   /**
    * Method to return the total 
