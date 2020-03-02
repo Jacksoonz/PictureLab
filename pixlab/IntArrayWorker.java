@@ -25,13 +25,16 @@ public class IntArrayWorker
     return count;
   }
   
-  public int getLargest(int n){
-      int count = 0;
+  public int getLargest(){
+      int count = Integer.MIN_VALUE;
       for(int row = 0 ; row<matrix.length ; row++)
       {
-          if(count<matrix[row][n])
+          for (int col = 0; col <matrix[0].length ; row++)
           {
-              count = matrix[row][n];
+              if(matrix[row][col] > count)
+              {
+                  count = matrix[row][col];
+              }
           }
       }
       return count;
