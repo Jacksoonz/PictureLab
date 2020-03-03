@@ -41,7 +41,41 @@ public class Picture extends SimplePicture
               pixel.setGreen(0);
           }
       } 
-    }
+  }
+    
+  public void negate()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel pixel = null;
+      for (int row = 0; row<pixels.length ; row++)
+      {
+          for (int col = 0; col<pixels[0].length ; col++)
+          {
+              pixel = pixels[row][col];
+              pixel.setRed(255-pixel.getRed());
+              pixel.setGreen(255-pixel.getGreen());
+              pixel.setBlue(255-pixel.getBlue());
+          }
+      }
+  }
+  
+  public void grayscale()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel pixel = null;
+      for (int row = 0; row< pixels.length ; row++)
+      {
+          for (int col = 0; col<pixels[0].length ; col++)
+          {
+              pixel = pixels[row][col];
+              pixel.setRed((pixel.getRed()+pixel.getBlue()+pixel.getGreen())/3);
+              pixel.setBlue((pixel.getRed()+pixel.getBlue()+pixel.getGreen())/3);
+              pixel.setGreen((pixel.getRed()+pixel.getBlue()+pixel.getGreen())/3);
+          }
+      }
+      
+      
+  }
   
   /**
    * Constructor that takes a file name and creates the picture 
