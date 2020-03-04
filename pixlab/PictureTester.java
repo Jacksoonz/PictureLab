@@ -30,6 +30,12 @@ public class PictureTester
       beach.negate();
   }
   
+  public static void testFixUnderwater()
+  {
+      Picture water = new Picture("water.jpg");
+      water.fixUnderwater();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -75,7 +81,7 @@ public class PictureTester
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    testNegate();
+    //testNegate();
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();

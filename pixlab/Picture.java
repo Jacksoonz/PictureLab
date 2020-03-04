@@ -63,18 +63,34 @@ public class Picture extends SimplePicture
   {
       Pixel[][] pixels = this.getPixels2D();
       Pixel pixel = null;
+      int total = 0;
+      int average = 0;
       for (int row = 0; row< pixels.length ; row++)
       {
           for (int col = 0; col<pixels[0].length ; col++)
           {
+              total = 0;
               pixel = pixels[row][col];
-              pixel.setRed((pixel.getRed()+pixel.getBlue()+pixel.getGreen())/3);
-              pixel.setBlue((pixel.getRed()+pixel.getBlue()+pixel.getGreen())/3);
-              pixel.setGreen((pixel.getRed()+pixel.getBlue()+pixel.getGreen())/3);
+              total = total + pixel.getRed();
+              total = total + pixel.getBlue();
+              total = total + pixel.getGreen();
+              average = total/3;
+              pixel.setColor(new Color(average, average, average));
+            }
+      }
+  }
+  
+  public void fixUnderwater(){
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel pixel = null;
+      for (int row = 0; row<pixels.length ; row++)
+      { 
+          for (int col = 0; col<pixels[0].length ; col++)
+          {
+              pixel = pixels[row][col];
+              pixel.setRed(pixel.getRed() * 3);
           }
       }
-      
-      
   }
   
   /**
@@ -165,6 +181,11 @@ public class Picture extends SimplePicture
         rightPixel.setColor(leftPixel.getColor());
       }
     } 
+  }
+  
+  public static void mirrorVerticalRightToLeft()
+  {
+      
   }
   
   /** Mirror just part of a picture of a temple */
@@ -272,10 +293,11 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("water.jpg");
     beach.explore();
-    beach.zeroBlue();
-    beach.explore();
+    //beach.zeroBlue();
+    //beach.explore();
+    beach.fixUnderwater();
   }
   
 } // this } is the end of class Picture, put all new methods before this
