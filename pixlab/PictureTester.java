@@ -20,20 +20,26 @@ public class PictureTester
   public static void testKeepOnlyBlue()
   {
     Picture beach = new Picture("beach.jpg");
+    beach.explore();
     beach.keepOnlyBlue();
+    beach.explore();
     
   }
   
   public static void testNegate()
   {
       Picture beach = new Picture("beach.jpg");
+      beach.explore();
       beach.negate();
+      beach.explore();
   }
   
   public static void testFixUnderwater()
   {
       Picture water = new Picture("water.jpg");
+      water.explore();
       water.fixUnderwater();
+      water.explore();
   }
   
   /** Method to test mirrorVertical */
@@ -43,6 +49,14 @@ public class PictureTester
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
+  }
+  
+  public static void testMirrorVerticalRightToLeft()
+  {
+      Picture caterpillar = new Picture("wall.jpg");
+      caterpillar.explore();
+      caterpillar.mirrorVerticalRightToLeft();
+      caterpillar.explore();
   }
   
   /** Method to test mirrorTemple */
